@@ -51,7 +51,7 @@
 
       function janken(player_hand){
         // コンピュータの手を決定
-        comp_hand = Math.floor(Math.random() * 3);
+        comp_hand = Math.floor(Math.random() * 2);
         // 勝敗判定
         result = judge[player_hand][comp_hand];
         // 結果表示
@@ -84,7 +84,7 @@
         $(".hand").css("display", "inline");
         // ニューゲームボタン非表示
         $("#newgame").css("display", "none");
-        $("#result").html("じゃんけん・・・ぽん")
+        $("#result").html("選んでね")
         $("#result2").html("");
       }
 
@@ -105,9 +105,9 @@
           db = new JankenScore();
           db.set(key, win_num).save();
 
-          msg += win_num +  "連勝でした。<br>";
+          msg += win_num +  "50%ループ<br>";
         } else {
-          msg += "1回も勝てませんでした。<br>次は頑張ろう";
+          msg += "ハズレ<br>";
         }
         $("#result2").html(msg);
         // ハンドボタン非表示
@@ -123,12 +123,11 @@
     </script>
 </head>
 <body>
-  <h1 class="text-white bg-primary">じゃんけん 連勝チャレンジ！</h1>
+  <h1 class="text-white bg-primary">二択あてチャレンジ</h1>
   <div id="highscore" class="text-white bg-secondary"></div>
   <div class="mx-auto" style="width: 200px">
     <a onclick="gu();" class="btn btn-outline-primary hand" role="button">ぐー</a>
     <a onclick="choki();" class="btn btn-outline-primary hand" role="button">ちょき</a>
-    <a onclick="pa();" class="btn btn-outline-primary hand" role="button">ぱー</a>
     <a onclick="newgame();" class="btn btn-info text-white" id="newgame" role="button">New Game</a>
   </div>
   <div id="result" class="text-white bg-secondary">

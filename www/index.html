@@ -14,16 +14,14 @@
       var hand_choki=1;
       
       // ハンド表示用配列
-      var hand_text = ["ぐー", "ちょき", "ぱー"];
+      var hand_text = ["左", "右",];
       // 勝敗判定用変数（定数）
       var judge_win=0;
-      
-      var judge_loose=2;
+      var judge_loose=1;
       // 勝敗判定表
       var judge = [
         [ judge_win, judge_loose],
         [judge_loose, judge_win],
-        [judge_win, judge_loose],
       ];
       // 勝敗結果表示用配列
       var judge_text = ["当たり", "ハズレ"];
@@ -42,7 +40,6 @@
       function gu() {
         janken(hand_gu);
       }
-
       function choki() {
         janken(hand_choki);
       }
@@ -62,7 +59,7 @@
         // 勝敗ごとの処理
         if(result == judge_win) {
           win_num++;
-          $("#result2").html(win_num + "連勝!")
+          $("#result2").html(win_num + "連チャン")
         } else {
           gameover();
         }
@@ -126,8 +123,8 @@
   <h1 class="text-white bg-primary">二択あてチャレンジ</h1>
   <div id="highscore" class="text-white bg-secondary"></div>
   <div class="mx-auto" style="width: 200px">
-    <a onclick="gu();" class="btn btn-outline-primary hand" role="button">ぐー</a>
-    <a onclick="choki();" class="btn btn-outline-primary hand" role="button">ちょき</a>
+    <a onclick="gu();" class="btn btn-outline-primary hand" role="button">左</a>
+    <a onclick="choki();" class="btn btn-outline-primary hand" role="button">右</a>
     <a onclick="newgame();" class="btn btn-info text-white" id="newgame" role="button">New Game</a>
   </div>
   <div id="result" class="text-white bg-secondary">
